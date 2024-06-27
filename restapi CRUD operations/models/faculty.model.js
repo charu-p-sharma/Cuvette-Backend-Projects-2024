@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const facultySchema = new mongoose.Schema({
     name: {
@@ -7,7 +7,8 @@ const facultySchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     department: {
         type: String,
@@ -17,6 +18,9 @@ const facultySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-}, { timestamps: true })
 
-export const Faculty = mongoose.model('Faculty', facultySchema);
+}, { timestamps: true });
+
+const Faculty = mongoose.model("Faculty", facultySchema);
+
+export default Faculty;
